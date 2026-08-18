@@ -1,6 +1,19 @@
 const form = document.querySelector('#lead-form');
 const status = document.querySelector('#form-status');
 
+if (form && !form.querySelector('input[name="photos"]')) {
+  const label = document.createElement('label');
+  label.textContent = 'Projektfotos (optional, bis zu 8 Bilder)';
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.name = 'photos';
+  input.accept = 'image/jpeg,image/png,image/webp';
+  input.multiple = true;
+  label.appendChild(input);
+  const consent = form.querySelector('.consent');
+  form.insertBefore(label, consent || null);
+}
+
 form?.addEventListener('submit', async (event) => {
   event.preventDefault();
   if (!status) return;
