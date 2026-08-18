@@ -1,0 +1,61 @@
+export const cities = {
+  kamen: { name: 'Kamen', priority: 1 },
+  dortmund: { name: 'Dortmund', priority: 1 },
+  unna: { name: 'Unna', priority: 1 },
+  bergkamen: { name: 'Bergkamen', priority: 2 },
+  schwerte: { name: 'Schwerte', priority: 2 },
+  hamm: { name: 'Hamm', priority: 2 },
+  luenen: { name: 'Lünen', priority: 2 },
+  iserlohn: { name: 'Iserlohn', priority: 2 },
+};
+
+export const services = {
+  gartenbau: { name: 'Garten- und Landschaftsbau', intent: 'Gartenbau', priority: 1 },
+  gartengestaltung: { name: 'Gartengestaltung', intent: 'Garten neu gestalten', priority: 1 },
+  gartenpflege: { name: 'Gartenpflege', intent: 'Gartenpflege beauftragen', priority: 1 },
+  rollrasen: { name: 'Rollrasen', intent: 'Rollrasen verlegen lassen', priority: 1 },
+  pflasterarbeiten: { name: 'Pflasterarbeiten', intent: 'Einfahrt, Wege oder Terrasse pflastern', priority: 1 },
+  terrassenbau: { name: 'Terrassenbau', intent: 'Terrasse neu bauen', priority: 1 },
+  zaunbau: { name: 'Zaunbau', intent: 'Zaun oder Sichtschutz bauen', priority: 1 },
+  baumfaellung: { name: 'Baumfällarbeiten', intent: 'Baum sicher fällen lassen', priority: 1 },
+  baumpflege: { name: 'Baumpflege', intent: 'Baum kontrollieren und pflegen lassen', priority: 1 },
+  wurzelfraesen: { name: 'Wurzelfräsen', intent: 'Baumstumpf und Wurzeln entfernen', priority: 1 },
+  erdarbeiten: { name: 'Erdarbeiten', intent: 'Erdreich abtragen, bewegen oder profilieren', priority: 1 },
+  drainage: { name: 'Drainage und Entwässerung', intent: 'Wasser vom Grundstück ableiten', priority: 1 },
+  poolbau: { name: 'Poolbau', intent: 'Pool und Außenbereich planen', priority: 2 },
+  sturmschaeden: { name: 'Sturmschadenbeseitigung', intent: 'Sturmschaden schnell beseitigen', priority: 1 },
+  schuettgut: { name: 'Schüttgut', intent: 'Erde, Kies, Sand oder Splitt liefern lassen', priority: 2 },
+  entsorgung: { name: 'Entsorgung', intent: 'Grünschnitt, Bauschutt oder Erdaushub entsorgen', priority: 2 },
+  winterdienst: { name: 'Winterdienst', intent: 'Winterdienst beauftragen', priority: 2 },
+  erdtransport: { name: 'Erdtransport und Erdmulde', intent: 'Erdreich transportieren lassen', priority: 2 },
+};
+
+export const priorityPages = [
+  ['gartenbau', 'kamen'], ['gartenbau', 'dortmund'], ['gartenbau', 'unna'],
+  ['gartengestaltung', 'kamen'], ['gartengestaltung', 'dortmund'], ['gartengestaltung', 'unna'],
+  ['gartenpflege', 'kamen'], ['gartenpflege', 'dortmund'], ['gartenpflege', 'unna'],
+  ['rollrasen', 'kamen'], ['rollrasen', 'dortmund'], ['rollrasen', 'unna'],
+  ['pflasterarbeiten', 'kamen'], ['pflasterarbeiten', 'dortmund'], ['pflasterarbeiten', 'unna'],
+  ['terrassenbau', 'kamen'], ['terrassenbau', 'dortmund'], ['terrassenbau', 'unna'],
+  ['zaunbau', 'kamen'], ['zaunbau', 'dortmund'], ['zaunbau', 'unna'],
+  ['baumfaellung', 'kamen'], ['baumfaellung', 'dortmund'], ['baumfaellung', 'unna'],
+  ['baumpflege', 'kamen'], ['baumpflege', 'dortmund'], ['baumpflege', 'unna'],
+  ['wurzelfraesen', 'kamen'], ['wurzelfraesen', 'dortmund'], ['wurzelfraesen', 'unna'],
+  ['erdarbeiten', 'kamen'], ['erdarbeiten', 'dortmund'], ['erdarbeiten', 'unna'],
+  ['drainage', 'kamen'], ['drainage', 'dortmund'], ['drainage', 'unna'],
+  ['sturmschaeden', 'kamen'], ['sturmschaeden', 'dortmund'],
+  ['schuettgut', 'kamen'], ['schuettgut', 'dortmund'],
+  ['entsorgung', 'kamen'], ['entsorgung', 'dortmund'],
+  ['poolbau', 'kamen'], ['poolbau', 'dortmund'],
+  ['winterdienst', 'kamen'], ['winterdienst', 'dortmund'],
+  ['erdtransport', 'kamen'], ['erdtransport', 'dortmund'],
+];
+
+export const references = {
+  terrassenbau: 'Terrassenbau mit WPC in Kamen',
+  baumpflege: 'Baumpflege in Dortmund',
+  pflasterarbeiten: 'Pflasterarbeiten in Unna',
+  drainage: 'Drainage und Entwässerung',
+  erdarbeiten: 'Erdarbeiten und Tiefbau',
+  erdtransport: 'Erdtransport und Schüttgut',
+};
