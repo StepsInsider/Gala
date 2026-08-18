@@ -1,6 +1,3 @@
-const SUPABASE_URL = window.PINCUS_SUPABASE_URL || '';
-const SUPABASE_ANON_KEY = window.PINCUS_SUPABASE_ANON_KEY || '';
-
 const form = document.querySelector('#lead-form');
 const status = document.querySelector('#form-status');
 
@@ -8,36 +5,23 @@ form?.addEventListener('submit', async (event) => {
   event.preventDefault();
   if (!status) return;
 
-  if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
-    status.textContent = 'Die Online-Anfrage ist noch nicht konfiguriert. Bitte hinterlegen Sie die Supabase-Konfiguration.';
-    return;
-  }
-
-  const data = Object.fromEntries(new FormData(form).entries());
+  const formData = new FormData(form);
   const params = new URLSearchParams(window.location.search);
-  const payload = {
-    ...data,
-    source: 'organic_or_direct',
-    landing_page: window.location.pathname,
-    campaign: params.get('utm_campaign') || '',
-    keyword: params.get('utm_term') || '',
-    gclid: params.get('gclid') || '',
-    fbclid: params.get('fbclid') || '',
-    photo_urls: [],
-  };
+  formData.set('source', params.get('utm_source') || 'organic_or_direct');
+  formData.set('landing_page', window.location.pathname);
+  formData.set('campaign', params.get('utm_campaign') || '');
+  formData.set('keyword', params.get('utm_term') || '');
+  formData.set('gclid', params.get('gclid') || '');
+  formData.set('fbclid', params.get('fbclid') || '');
 
   status.textContent = 'Anfrage wird übermittelt …';
   try {
-    const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/create_public_lead`, {
+    const response = await fetch('/.netlify/functions/create-lead', {
       method: 'POST',
-      headers: {
-        apikey: SUPABASE_ANON_KEY,
-        Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ payload }),
+      body: formData,
     });
-    if (!response.ok) throw new Error(await response.text());
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(result.error || 'Lead konnte nicht erstellt werden');
     form.reset();
     status.textContent = 'Vielen Dank. Ihre Anfrage wurde erfolgreich übermittelt.';
   } catch (error) {
